@@ -14,19 +14,20 @@
 <!--  配置sessionFactory 
   --> 
 	
-	<bean id="BankBalanceDao" class="edu.nju.bankbalance.dao.impl.BankBalanceDaoImpl">
+	<bean id="MemberDao" class="edu.nju.healthclub.dao.impl.MemberDaoImpl">
 
 	</bean>
-	<bean id="BankBalanceService" class="edu.nju.bankbalance.service.impl.BankBalanceServiceImpl">
-		<property name="BankBalanceDao">
-			<ref bean="BankBalanceDao"/>
+	<bean id="MemberService" class="edu.nju.healthclub.service.impl.MemberServiceImpl">
+		<property name="MemberDao">
+			<ref bean="MemberDao"/>
 		</property>
+		
 	</bean>		
 	
 	
-	<bean id="LoginAction" class="edu.nju.bankbalance.action.LoginAction">
-		<property name="BankBalanceService">
-			<ref bean="BankBalanceService"/>
+	<bean id="LoginAction" class="edu.nju.healthclub.action.LoginAction">
+		<property name="MemberService">
+			<ref bean="MemberService"/>
 		</property>
 	</bean>	
 

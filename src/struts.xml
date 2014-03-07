@@ -6,10 +6,8 @@
       <package name="struts2" namespace="/"
           extends="struts-default">
           <action name="login" class="LoginAction">
-              <result name="normal">/NormalBalance.jsp</result>
-              <result name="negative">/NegativeBalance.jsp</result>
-              <result name="unknown">/UnknownCustomer.jsp</result>
-              <result name="high">/HighBalance.jsp</result>
+              <result name="success">/member/Success.jsp</result>
+              <result name="input">/member/Login.jsp</result>
           </action>
       </package>
   </struts>

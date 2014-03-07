@@ -18,6 +18,7 @@ public class Member {
     private int age;
     private String address;
     private int childnum;
+    private int breaktime;
     
     @Id
 	public int getId() {
@@ -86,7 +87,11 @@ public class Member {
 	public void setChildnum(int childnum) {
 		this.childnum = childnum;
 	}
-    
-    
-    
+	public int getBreaktime() {
+		return breaktime;
+	}
+	public void setBreaktime(int breaktime) {
+		this.breaktime = breaktime;
+	}
+  
 }
