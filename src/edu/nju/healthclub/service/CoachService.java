@@ -1,4 +1,4 @@
-package edu.nju.healthclub.model;
+package edu.nju.healthclub.service;
 
 import java.io.IOException;
 

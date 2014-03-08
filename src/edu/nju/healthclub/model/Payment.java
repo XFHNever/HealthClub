@@ -1,5 +1,7 @@
 package edu.nju.healthclub.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -47,4 +49,10 @@ public class Payment {
 		this.time = time;
 	}
 	
+	public void setCurrentTime() {
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		format.format(date);
+		this.time = date;
+	}
 }

@@ -1,6 +1,5 @@
 package edu.nju.healthclub.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -20,7 +19,7 @@ public class MemberDaoImpl implements MemberDao{
     	   Configuration configuration = new Configuration().configure();
     	   
     	   @SuppressWarnings("deprecation")
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
+    	   SessionFactory sessionFactory = configuration.buildSessionFactory();
     	   Session session = sessionFactory.openSession();
     	   Transaction transaction = session.beginTransaction();
     	   session.save(member);

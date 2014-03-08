@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+
+<title>Login</title>
 </head>
 <body>
     <br/>
-    <s:form action="/login">
-        <s:textfield 
-        name="memberid" label="会员ID" />
+    <s:form action="/login"  >
+        <s:textfield name="memberid" label="会员ID" />
         <s:textfield name="password" label="密码"/>
         
         <s:submit value="登陆"/>

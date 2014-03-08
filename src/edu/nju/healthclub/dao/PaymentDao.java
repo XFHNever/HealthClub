@@ -17,7 +17,17 @@ public interface PaymentDao {
 	 * 查询所有的Payment对象
 	 * @return Payment对象的列表
 	 */
+	@SuppressWarnings("rawtypes")
 	public List finAll();
+	
+	/**
+	 * 通过关键字搜索Payment,返回Payment对象的结合.
+	 * @param column 列名
+	 * @param value  列值
+	 * @return Payment对象的集合。
+	 */
+	@SuppressWarnings("rawtypes")
+	public List findByKey(String column,String value);
 	
 	/**
 	 * 向数据库插入一条Payment记录

@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.nju.healthclub.dao.ParticipationDao;
 import edu.nju.healthclub.dao.SessionDao;
 import edu.nju.healthclub.model.Member;
 import edu.nju.healthclub.model.Participation;
@@ -19,6 +20,8 @@ public interface SessionService {
 	 */
 	public SessionDao getSessionDao();
 	public void setSessionDao(SessionDao sessionDao);
+	public ParticipationDao getParticipationDao();
+	public void setParticipationDao(ParticipationDao participationDao);
 	
 	/**
 	 * 新建一个活动场次
@@ -29,11 +32,11 @@ public interface SessionService {
 	public VALIDATE_RESULT validateSession();
 	
 	/**
-	 * 会员预定一个场次活动，返回一个参与活动记录.
+	 * 会员预定一个场次活动
+	 * @param member Member对象
 	 * @param session Session对象
-	 * @return Participation对象
 	 */
-	public Participation reserveSession(Session session);
+	public void reserveSession(Member member,Session session);
 	
 	/**
 	 * 获取所有的活动场次。

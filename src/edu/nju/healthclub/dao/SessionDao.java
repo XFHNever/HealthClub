@@ -20,6 +20,14 @@ public interface SessionDao {
 	public List finAll();
 	
 	/**
+	 * 通过关键字查找Session对象,返回一个数组。
+	 * @param column 列名
+	 * @param value 列值
+	 * @return Session的list数组
+	 */
+	public List findByKey(String column,String value);
+	
+	/**
 	 * 向数据库插入一条Session记录
 	 * @param session Session对象。
 	 */

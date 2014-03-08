@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.nju.healthclub.dao.MemberDao;
 import edu.nju.healthclub.dao.PaymentDao;
 import edu.nju.healthclub.model.Member;
 import edu.nju.healthclub.model.Payment;
@@ -18,6 +19,8 @@ public interface PaymentService {
 	 */
     public PaymentDao getPaymentDao();
     public void setPaymentDao(PaymentDao paymentDao);
+    public MemberDao getMemberDao();
+    public void setMemberDao(MemberDao memberDao);
 	
 	/**
 	 * ª·‘±÷ß∏∂

@@ -21,6 +21,15 @@ public interface ParticipationDao {
 	public List finAll();
 	
 	/**
+	 * 通过关键字搜索Participation,返回Participation对象集合
+	 * @param column 列名
+	 * @param value 列值
+	 * @return Participation对象的集合
+	 */
+	@SuppressWarnings("rawtypes")
+	public List findByKey(String column,String value);
+	
+	/**
 	 * 向数据库插入一条Participation记录
 	 * @param participation Participation对象。
 	 */

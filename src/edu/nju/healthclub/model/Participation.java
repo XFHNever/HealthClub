@@ -37,5 +37,10 @@ public class Participation {
 	public void setSessionid(String sessionid) {
 		this.sessionid = sessionid;
 	}
+	
+	//根据memberid和sessionid生成对象id
+	public void setParticipationidByAttr() {
+		this.participationid = memberid + sessionid;
+	}
     
 }

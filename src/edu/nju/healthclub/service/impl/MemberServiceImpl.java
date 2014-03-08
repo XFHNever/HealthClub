@@ -1,22 +1,14 @@
 package edu.nju.healthclub.service.impl;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.nju.healthclub.dao.MemberDao;
-import edu.nju.healthclub.dao.ParticipationDao;
-import edu.nju.healthclub.dao.PaymentDao;
-import edu.nju.healthclub.dao.SessionDao;
 import edu.nju.healthclub.model.Member;
-import edu.nju.healthclub.model.Participation;
-import edu.nju.healthclub.model.Payment;
-import edu.nju.healthclub.model.Session;
 import edu.nju.healthclub.service.MemberService;
-import edu.nju.healthclub.service.enuminfo.PAY_RESULT;
 import edu.nju.healthclub.service.enuminfo.REGISTER_RESULT;
 import edu.nju.healthclub.service.enuminfo.UPDATE_RESULT;
 import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
@@ -31,7 +23,6 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public MemberDao getMemberDao() {
-		// TODO Auto-generated method stub
 		return memberDao;
 	}
 	@Override

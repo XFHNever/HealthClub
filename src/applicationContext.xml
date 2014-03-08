@@ -14,17 +14,59 @@
 <!--  配置sessionFactory 
   --> 
 	
-	<bean id="MemberDao" class="edu.nju.healthclub.dao.impl.MemberDaoImpl">
-
-	</bean>
+	<bean id="MemberDao" class="edu.nju.healthclub.dao.impl.MemberDaoImpl"></bean>
+	<bean id="ActivityDao" class="edu.nju.healthclub.dao.impl.ActivityDaoImpl"></bean>
+	<bean id="CoachDao" class="edu.nju.healthclub.dao.impl.CoachDaoImpl"></bean>
+	<bean id="ManagerDao" class="edu.nju.healthclub.dao.impl.ManagerDaoImpl"></bean>
+	<bean id="ParticipationDao" class="edu.nju.healthclub.dao.impl.ParticipationDaoImpl"></bean>
+	<bean id="PaymentDao" class="edu.nju.healthclub.dao.impl.PaymentDaoImpl"></bean>
+	<bean id="SessionDao" class="edu.nju.healthclub.dao.impl.SessionDaoImpl"></bean>
+	<bean id="WaiterDao" class="edu.nju.healthclub.dao.impl.WaiterDaoImpl"></bean>
+	
+	
+	<bean id="ActivityService" class="edu.nju.healthclub.service.impl.ActivityServiceImpl">
+		<property name="ActivityDao">
+			<ref bean="ActivityDao"/>
+		</property>
+	</bean>	
 	<bean id="MemberService" class="edu.nju.healthclub.service.impl.MemberServiceImpl">
 		<property name="MemberDao">
 			<ref bean="MemberDao"/>
 		</property>
+	</bean>	
+	<bean id="CoachService" class="edu.nju.healthclub.service.impl.CoachServiceImpl">
+		<property name="CoachDao">
+			<ref bean="CoachDao"/>
+		</property>
+	</bean>	
+	<bean id="ManagerService" class="edu.nju.healthclub.service.impl.ManagerServiceImpl">
+		<property name="ManagerDao">
+			<ref bean="ManagerDao"/>
+		</property>
+	</bean>	
+	<bean id="ParticipationService" class="edu.nju.healthclub.service.impl.ParticipationServiceImpl">
+		<property name="ParticipationDao">
+			<ref bean="ParticipationDao"/>
+		</property>
+	</bean>	
+	<bean id="PaymentService" class="edu.nju.healthclub.service.impl.PaymentServiceImpl">
+		<property name="PaymentDao">
+			<ref bean="PaymentDao"/>
+		</property>
+	</bean>	
+	<bean id="SessionService" class="edu.nju.healthclub.service.impl.SessionServiceImpl">
+		<property name="SessionDao">
+			<ref bean="SessionDao"/>
+		</property>
+	</bean>	
+	<bean id="WaiterService" class="edu.nju.healthclub.service.impl.WaiterServiceImpl">
+		<property name="WaiterDao">
+			<ref bean="WaiterDao"/>
+		</property>
+	</bean>	
+	
 		
-	</bean>		
-	
-	
+		
 	<bean id="LoginAction" class="edu.nju.healthclub.action.LoginAction">
 		<property name="MemberService">
 			<ref bean="MemberService"/>

@@ -15,6 +15,12 @@
         <property name="hbm2ddl.auto">update</property>
        
         <mapping class="edu.nju.healthclub.model.Member"/>   
-
+		<mapping class="edu.nju.healthclub.model.Activity"/> 
+		<mapping class="edu.nju.healthclub.model.Coach"/> 
+		<mapping class="edu.nju.healthclub.model.Manager"/> 
+		<mapping class="edu.nju.healthclub.model.Participation"/> 
+		<mapping class="edu.nju.healthclub.model.Payment"/> 
+		<mapping class="edu.nju.healthclub.model.Session"/> 
+		<mapping class="edu.nju.healthclub.model.Waiter"/> 
 </session-factory>
 </hibernate-configuration>
