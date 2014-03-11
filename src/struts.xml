@@ -6,8 +6,14 @@
       <package name="struts2" namespace="/"
           extends="struts-default">
           <action name="login" class="LoginAction">
-              <result name="success">/member/Success.jsp</result>
-              <result name="input">/member/Login.jsp</result>
+              <result name="member">/member/memhome.jsp</result>
+              <result name="waiter">/member/Success.jsp</result>
+              <result name="manager">/member/Success.jsp</result>
+              <result name="fail">/member/login_fail.jsp</result>
+          </action>
+          <action name="register" class="RegisterAction">
+          	  <result name="success">/member/register_success.jsp</result>
+          	  <result name="fail">/member/register_fail.jsp</result>
           </action>
       </package>
   </struts>

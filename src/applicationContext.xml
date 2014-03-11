@@ -71,6 +71,14 @@
 		<property name="MemberService">
 			<ref bean="MemberService"/>
 		</property>
+		<property name="ActivityService">
+			<ref bean="ActivityService"/>
+		</property>
 	</bean>	
+	<bean id="RegisterAction" class="edu.nju.healthclub.action.RegisterAction">
+		<property name="MemberService">
+			<ref bean="MemberService"/>
+		</property>
+	</bean>
 
 </beans>

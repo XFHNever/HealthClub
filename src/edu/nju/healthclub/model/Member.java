@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import edu.nju.healthclub.service.enuminfo.MEMBER_TYPE;
+
 @Entity
 @Table(name="member")
 public class Member {
@@ -94,4 +96,5 @@ public class Member {
 		this.breaktime = breaktime;
 	}
   
+
 }

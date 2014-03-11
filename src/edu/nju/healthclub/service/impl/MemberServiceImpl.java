@@ -39,7 +39,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public REGISTER_RESULT registerMember(Member member) {
-		if(validateUpdateMember(member) != null) {
+		if(validateUpdateMember(member) == VALIDATE_RESULT.信息填写不完整) {
 			return REGISTER_RESULT.信息未填写完全;
 		} else {
 			memberDao.save(member);
