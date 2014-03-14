@@ -66,6 +66,7 @@ public class MemberDaoImpl implements MemberDao{
 			Session session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
 			session.update(member);
+			System.out.println("member update" + member.getBalance());
 			transaction.commit();
 			session.close();
 			sessionFactory.close();

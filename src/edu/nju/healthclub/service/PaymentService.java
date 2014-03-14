@@ -12,6 +12,7 @@ import edu.nju.healthclub.dao.PaymentDao;
 import edu.nju.healthclub.model.Member;
 import edu.nju.healthclub.model.Payment;
 import edu.nju.healthclub.service.enuminfo.PAY_RESULT;
+import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
 
 public interface PaymentService {
 	/*
@@ -41,6 +42,13 @@ public interface PaymentService {
 	 * @return Payment对象的列表
 	 */
 	public List getAllPayments();
+	
+	/**
+	 * 验证Payment对象，返回验证结果的枚举
+	 * @param payment Payment对象
+	 * @return 验证结果的枚举值。
+	 */
+	public VALIDATE_RESULT validatePayment(Payment payment);
 	/**
 	 * 发送错误信息
 	 * @param message 信息内容

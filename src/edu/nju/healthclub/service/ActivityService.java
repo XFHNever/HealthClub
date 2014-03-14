@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.nju.healthclub.dao.ActivityDao;
 import edu.nju.healthclub.model.Activity;
+import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
 
 public interface ActivityService {
 	/*
@@ -34,6 +35,12 @@ public interface ActivityService {
 	 */
 	public List getCurrentActivities();
 	
+	/**
+	 * 验证Activity对象信息是否填写完整,返回验证的枚举结果。
+	 * @param activity Activity对象
+	 * @return 验证结果的枚举结果
+	 */
+	public VALIDATE_RESULT validateUpdateActivity(Activity activity);
 	/**
 	 * 发送错误信息
 	 * @param message 信息内容

@@ -13,6 +13,7 @@ import edu.nju.healthclub.model.Member;
 import edu.nju.healthclub.model.Payment;
 import edu.nju.healthclub.service.PaymentService;
 import edu.nju.healthclub.service.enuminfo.PAY_RESULT;
+import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
 
 public class PaymentServiceImpl implements PaymentService{
     private PaymentDao paymentDao;
@@ -46,8 +47,10 @@ public class PaymentServiceImpl implements PaymentService{
 			return PAY_RESULT.支付失败;
 		}
 		
-		member.setBalance(member.getBalance() + payment.getQuantity());
-		memberDao.save(member);
+		float newBalance = member.getBalance() + (float)payment.getQuantity();
+		
+		member.setBalance(newBalance);
+		memberDao.updateByMemberid(member);
 		
 		paymentDao.save(payment);
 		return PAY_RESULT.支付成功;
@@ -75,6 +78,14 @@ public class PaymentServiceImpl implements PaymentService{
 	public void sentMessage(String message, HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("message", message);
+	}
+
+	@Override
+	public VALIDATE_RESULT validatePayment(Payment payment) {
+		if(payment.getCardid().equals("") || payment.getQuantity() <= 0){
+			return VALIDATE_RESULT.信息填写不完整;
+		}
+		return VALIDATE_RESULT.验证成功;
 	}
 
 }

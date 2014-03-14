@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.nju.healthclub.dao.ActivityDao;
 import edu.nju.healthclub.model.Activity;
 import edu.nju.healthclub.service.ActivityService;
+import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
 
 public class ActivityServiceImpl implements ActivityService {
 	private ActivityDao activityDao;
@@ -51,6 +52,14 @@ public class ActivityServiceImpl implements ActivityService {
 	public void sentMessage(String message, HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("message", message);
+	}
+
+	@Override
+	public VALIDATE_RESULT validateUpdateActivity(Activity activity) {
+		if(activity.getField().equals("") || activity.getName().equals("") || activity.getCoachid().equals("")) {
+			return VALIDATE_RESULT.信息填写不完整;
+		}
+		return VALIDATE_RESULT.验证成功;
 	}
 
 }

@@ -53,6 +53,9 @@
 		<property name="PaymentDao">
 			<ref bean="PaymentDao"/>
 		</property>
+		<property name="MemberDao">
+			<ref bean="MemberDao"/>
+		</property>
 	</bean>	
 	<bean id="SessionService" class="edu.nju.healthclub.service.impl.SessionServiceImpl">
 		<property name="SessionDao">
@@ -74,11 +77,41 @@
 		<property name="ActivityService">
 			<ref bean="ActivityService"/>
 		</property>
+		<property name="WaiterService">
+			<ref bean="WaiterService"/>
+		</property>
 	</bean>	
 	<bean id="RegisterAction" class="edu.nju.healthclub.action.RegisterAction">
 		<property name="MemberService">
 			<ref bean="MemberService"/>
 		</property>
 	</bean>
+	
+	<bean id="PayAction" class="edu.nju.healthclub.action.PayAction">
+		<property name="PaymentService">
+			<ref bean="PaymentService"/>
+		</property>
+		<property name="MemberService">
+			<ref bean="MemberService"/>
+		</property>
+	</bean>
 
+	<bean id="AddNewActivityAction" class="edu.nju.healthclub.action.AddNewActivityAction">
+		<property name="ActivityService">
+			<ref bean="ActivityService"/>
+		</property>
+	</bean>
+	<bean id="GetPaymentAction" class="edu.nju.healthclub.action.GetPaymentAction">
+		<property name="PaymentService">
+			<ref bean="PaymentService"/>
+		</property>
+	</bean>
+	<bean id="GetPersonalInfoAction" class="edu.nju.healthclub.action.GetPersonalInfoAction">
+	</bean>
+	
+	<bean id="GetActivityAction" class="edu.nju.healthclub.action.GetActivityAction">
+		<property name="ActivityService">
+			<ref bean="ActivityService"/>
+		</property>
+	</bean>
 </beans>

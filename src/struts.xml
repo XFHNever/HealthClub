@@ -7,13 +7,37 @@
           extends="struts-default">
           <action name="login" class="LoginAction">
               <result name="member">/member/memhome.jsp</result>
-              <result name="waiter">/member/Success.jsp</result>
+              <result name="waiter">/waiter/waiterhome.jsp</result>
               <result name="manager">/member/Success.jsp</result>
-              <result name="fail">/member/login_fail.jsp</result>
+              <result name="fail">/member/Login.jsp</result>
           </action>
           <action name="register" class="RegisterAction">
           	  <result name="success">/member/register_success.jsp</result>
-          	  <result name="fail">/member/register_fail.jsp</result>
+          	  <result name="fail">/member/register.jsp</result>
+          </action>
+          <action name="pay" class="PayAction">
+          	  <result name="notlogin">/member/Login.jsp</result>
+          	  <result name="success">/member/pay.jsp</result>
+          	  <result name="fail">/member/pay.jsp</result>
+          </action>
+          <action name="addnewactivity" class="AddNewActivityAction">
+          	  <result name="success">/waiter/waiterhome.jsp</result>
+          	  <result name="fail">/waiter/waiterhome.jsp</result>
+          </action>
+          
+          <action name="getpayment" class="GetPaymentAction">
+          	  <result name="success">/member/pay.jsp</result>
+          	  <result name="fail">/member/Login.jsp</result>
+          </action>
+          
+          <action name="getpersonalinfo" class="GetPersonalInfoAction">
+          	  <result name="success">/member/personal.jsp</result>
+          	  <result name="fail">/member/Login.jsp</result>
+          </action>
+          
+          <action name="getactivity" class="GetActivityAction">
+          	  <result name="success">/member/memhome.jsp</result>
+          	  <result name="fail">/member/Login.jsp</result>
           </action>
       </package>
   </struts>
