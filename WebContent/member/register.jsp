@@ -32,14 +32,14 @@
 			        <s:textfield name="member.name" label="姓名" tooltip="Enter your Name here" requiredLabel="true"/>
 			        <s:password name="passwordOne" label="密          码" tooltip="Enter your password here" requiredLabel="true" />
 			        <s:password name="passwordTwo" label="确认密码" tooltip="Enter your confirm password here" requiredLabel="true" />
-			        <s:select list="{'个人','家庭'}" label="类型" name="member.type" tooltip="select your acount type" value="个人" />
+			        <s:select list="{'Personal','Family'}" label="类型" name="member.type" tooltip="select your acount type" value="个人" />
 			        <s:select list="{'Male','Female'}" name="member.sex" label="性别" tooltip="select your sex" value="Male"/>
 			        <s:textfield name="member.address" label="地址" tooltip="Enter your address here" requiredLabel="true"/>
 			        <s:textfield name="member.age" label="年龄" tooltip="Enter your age here" requiredLabel="true"/>
 			        <s:textfield name="member.childnum" label="子女数量" tooltip="Enter the number of your son or daughter here" requiredLabel="true" value="0"/>
 			        
 			        <div class="form-actions">
-	                    <sj:submit cssClass="btn btn-primary" formIds="validationForm" validate="true" validateFunction="bootstrapValidation"/>
+	                    <sj:submit cssClass="btn btn-primary"/>
 	                </div>
 			    </s:form>
 		    </div>

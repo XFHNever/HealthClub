@@ -6,6 +6,7 @@ import edu.nju.healthclub.model.Member;
 import edu.nju.healthclub.model.Payment;
 import edu.nju.healthclub.service.MemberService;
 import edu.nju.healthclub.service.PaymentService;
+import edu.nju.healthclub.service.enuminfo.MEMBER_STATE;
 import edu.nju.healthclub.service.enuminfo.PAY_RESULT;
 import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
 
@@ -21,7 +22,6 @@ public class PayAction extends BaseAction{
 	public String execute() throws Exception {
 		
 		if(paymentService.validatePayment(payment) == VALIDATE_RESULT.信息填写不完整) {
-			//paymentService.sentErrorMessage(VALIDATE_RESULT.信息填写不完整.toString(), this.request(), this.response());
 			addActionError(VALIDATE_RESULT.信息填写不完整.toString());
 			return "fail";
 		}
@@ -33,6 +33,7 @@ public class PayAction extends BaseAction{
 		} else {
 			member.setBalance(member.getBalance() + payment.getQuantity());
 			
+			
 			payment.setMemberid(member.getMemberid());
 			paymentService.getPayments(member);
 		}
@@ -41,13 +42,13 @@ public class PayAction extends BaseAction{
 		PAY_RESULT pay_result = paymentService.addNewPayment(payment);
 		
 		if(pay_result == PAY_RESULT.支付成功) {
-			//paymentService.sentMessage(pay_result.toString(), this.request(), this.response());
 			this.request().getSession().setAttribute("user", member);
 			m_payments = paymentService.getPayments(member);
 			addActionMessage(pay_result.toString());
+			member.setState(MEMBER_STATE.USING.toString());
+			this.request().setAttribute("user", member);
 			return "success";
 		} else {
-			//paymentService.sentErrorMessage(pay_result.toString(), this.request(), this.response());
 			addActionError(pay_result.toString());
 			return "fail";
 		}

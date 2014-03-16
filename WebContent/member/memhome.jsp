@@ -68,6 +68,23 @@
 						</tr>
 					</s:iterator>
 				</table>
+				
+				<h1 style="margin-top: 50px;">Joined Activities</h1>
+				
+				<table  class="table table-striped" >
+					<tr>
+						<th>SessionId</th>
+						<th>Date</th>
+						
+					</tr>
+					<s:iterator value="m_activities">
+						<tr>
+							
+							<td><s:property value="sessionid"/></td>
+							<td><s:property value="date"/></td>
+						</tr>
+					</s:iterator>
+				</table>
 	        </div>
 	    </div>
 	

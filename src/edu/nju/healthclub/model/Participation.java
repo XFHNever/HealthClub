@@ -1,5 +1,7 @@
 package edu.nju.healthclub.model;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,6 +13,7 @@ public class Participation {
     private String participationid;
     private String memberid;
     private String sessionid;
+    private Date date;
     
     @Id
 	public int getId() {
@@ -38,6 +41,12 @@ public class Participation {
 		this.sessionid = sessionid;
 	}
 	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	//根据memberid和sessionid生成对象id
 	public void setParticipationidByAttr() {
 		this.participationid = memberid + sessionid;

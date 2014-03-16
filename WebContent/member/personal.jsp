@@ -14,7 +14,6 @@
 <title>Head</title>
 </head>
 <body>
-    <s:form action="/addnewactivity"></s:form>
 <div class="navbar navbar-fixed-top" >
 	    <div class="navbar-inner">
 	        <div class="container">
@@ -68,17 +67,14 @@
 				        <s:label label="卡号" value="%{member.memberid}"/>
 				        <s:label label="余额" value="%{member.balance}"/>
 				        <s:label label="类型" value="%{member.type}"/>
+						<s:label label="状态" value="%{member.state}"/>
 
 				        <div class="form-actions">
-		                    <sj:submit cssClass="btn btn-primary" formIds="validationForm" validate="true" validateFunction="bootstrapValidation"/>
+		                    <sj:submit cssClass="btn btn-primary"/>
 		                </div>
 				    </s:form>
 		        </div>
-		        <div class="tab-pane active" id="my-activity">
-		        	<h1 style="margin-top: 100px;">Personal Center</h1>
-		        </div>
-		        <div class="tab-pane active" id="my-pay">
-		        </div>
+		  
 				
 	        </div>
 	    </div>

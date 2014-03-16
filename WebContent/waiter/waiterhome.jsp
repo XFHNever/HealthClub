@@ -25,12 +25,10 @@
 	
 	            <div class="nav-collapse">
 	                <ul class="nav">
-	                    <s:url var="home_url" action="home"/>
-	                    <li class="active"><s:a href="%{home_url}">Activity</s:a></li>
-	                    <s:url var="pay_url" action="pay"/>
-	                    <li><s:a href="%{pay_url}">Record</s:a></li>
-						<s:url var="personal_url" action="personal"/>
-	                    <li><a href="%{personal_url}">Personal</a></li>
+	                    <s:url var="whome_url" action="/backwaiterhome"/>
+	                    <li class="active"><s:a href="#">Activity</s:a></li>
+	                    <s:url var="member_url" action="/checkmember"/>
+	                    <li><s:a href="%{member_url}">Member</s:a></li>
 	                    
 	                </ul>
 	            </div>
@@ -50,10 +48,10 @@
 	            
 			    <s:form id="validationForm" action="/addnewactivity" enctype="multipart/form-data" theme="bootstrap" cssClass="form-horizontal" label="Fill in the information about activity" >
 			        <s:textfield name="activity.name" label="活动名称" tooltip="Enter your Name here" requiredLabel="true"/>
-			        <s:textfield name="activity.field" label="活动场地" tooltip="Enter your Field here" requiredLabel="true" />
-			        <s:textfield name="activity.coachid" label="活动教练ID" tooltip="Enter your Coachid here" requiredLabel="true" />
+			        <s:select list="{'14-216','Library','Basketball court','Swimming Pool','football court','ground track field','supermarket'}" name="activity.field" label="活动场地" tooltip="Enter your Field here" requiredLabel="true" />
+			        <s:select list="{'5000','5001','5002','5003','5004','5005','5006','5007'}" name="activity.coachid" label="活动教练ID" tooltip="Enter your Coachid here" requiredLabel="true" />
 			        <div class="form-actions">
-	                    <sj:submit cssClass="btn btn-primary" formIds="validationForm" validate="true" validateFunction="bootstrapValidation"/>
+	                    <sj:submit cssClass="btn btn-primary" />
 	                </div>
 			    </s:form>
 				
@@ -66,13 +64,16 @@
 						<th>AvtivityCoach</th>
 						<th>More</th>
 					</tr>
-					<s:iterator value="activities">
+					<s:iterator value="activities" var="a">
 						<tr>
 							<td><s:property value="id"/></td>
 							<td><s:property value="name"/></td>
 							<td><s:property value="field"/></td>
 							<td><s:property value="coachid"/></td>
-							<td><s:a href="">more</s:a>
+							<td><a href="<s:url action="/activityinfo">
+								<s:param name="activityid" value="#a.id"></s:param>
+								<s:param name="status" value="#a.name"></s:param>
+							</s:url>">More</a></td>
 						</tr>
 					</s:iterator>
 				</table>

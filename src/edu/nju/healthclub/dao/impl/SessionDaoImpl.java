@@ -47,7 +47,7 @@ public class SessionDaoImpl implements SessionDao {
 			SessionFactory sessionFactory = configuration.buildSessionFactory();
         	org.hibernate.Session session = sessionFactory.openSession();
         	
-        	String sql = "from edu.nju.healthclub.model.Session";
+        	String sql = "from edu.nju.healthclub.model.Session order by sessionid DESC";
         	
         	Query query = session.createQuery(sql);
 

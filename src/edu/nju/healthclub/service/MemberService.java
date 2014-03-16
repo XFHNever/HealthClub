@@ -28,6 +28,10 @@ public interface MemberService {
 	public MemberDao getMemberDao();
 	public void setMemberDao(MemberDao memberDao);
 
+	public List getAll();
+	
+	public List getSex();
+	
 	/**
 	 * 通过id验证用户,如果验证查找失败，则返回null。
 	 * @param memberid 会员Id

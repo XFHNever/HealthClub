@@ -1,5 +1,6 @@
 package edu.nju.healthclub.dao.impl;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -9,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import edu.nju.healthclub.dao.ParticipationDao;
+import edu.nju.healthclub.model.Daily_Member;
 import edu.nju.healthclub.model.Member;
 import edu.nju.healthclub.model.Participation;
 
@@ -96,6 +98,27 @@ public class ParticipationDaoImpl implements ParticipationDao {
 			List list = query.list();
         	
         	return list;
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+		return null;
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public List findDaily() {
+		try {
+        	Configuration configuration = new Configuration().configure();
+        	@SuppressWarnings("deprecation")
+			SessionFactory sessionFactory = configuration.buildSessionFactory();
+        	Session session = sessionFactory.openSession();
+        	
+        	String sql = "select new edu.nju.healthclub.model.Daily_Member(date,count(*)) from edu.nju.healthclub.model.Participation ps group by date";
+        	
+        	Query query = session.createQuery(sql);
+			List list = query.list();
+        	
+			return list;
         } catch (Exception e) {
         	e.printStackTrace();
         }

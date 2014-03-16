@@ -3,6 +3,7 @@
      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
       "http://struts.apache.org/dtds/struts-2.0.dtd">
  <struts>
+     <constant name="struts.i18n.encoding" value="utf-8"></constant>  
       <package name="struts2" namespace="/"
           extends="struts-default">
           <action name="login" class="LoginAction">
@@ -45,6 +46,7 @@
           
           <action name="activityinfo" class="ActivityInfoAction">
           	  <result name="success">/member/sessions.jsp</result>
+          	  <result name="waiter">/waiter/activityinfo.jsp</result>
           	  <result name="input">/member/Login.jsp</result>
           	  <result name="fail">/member/Login.jsp</result>
           </action>
@@ -66,6 +68,30 @@
           </action>
           
           <action name="completeadd" class="CompleteAddAction">
+          	  <result name="success">/waiter/waiterhome.jsp</result>
+          </action>
+          
+          <action name="backmanagerhome" class="BackManagerHomeAction">
+          	  <result name="success">/manager/managerhome.jsp</result>
+          </action>
+          
+          <action name="clubanalytics" class="ClubAnalyticsAction">
+          	  <result name="success">/manager/clubanalytics.jsp</result>
+          </action>
+          
+          <action name="memberanalytics" class="MemberAnalyticsAction">
+          	  <result name="success">/manager/memberanalytics.jsp</result>
+          </action>
+          
+          <action name="checkmember" class="CheckMemberAction">
+          	  <result name="success">/waiter/checkMember.jsp</result>
+          </action>
+          
+          <action name="memberinfo" class="MemberInfoAction">
+          	  <result name="success">/waiter/memberinfo.jsp</result>
+          </action>
+          
+          <action name="backwaiterhome" class="BackWaiterHomeAction">
           	  <result name="success">/waiter/waiterhome.jsp</result>
           </action>
       </package>

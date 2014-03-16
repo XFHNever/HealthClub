@@ -20,6 +20,8 @@ public interface ParticipationDao {
 	@SuppressWarnings("rawtypes")
 	public List finAll();
 	
+
+	public List findDaily();
 	/**
 	 * 通过关键字搜索Participation,返回Participation对象集合
 	 * @param column 列名

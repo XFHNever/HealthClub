@@ -30,6 +30,12 @@ public interface ParticipationService {
 	 * @return Participation对象的列表
 	 */
 	public List getAllParticipation();
+	
+	/**
+	 * 获取俱乐部日总人数。返回时间和人数的列表。
+	 * @return 时间和人数的列表。
+	 */
+	public List getDaily();
 	/**
 	 * 预定参加活动
 	 * @param participation Participation对象

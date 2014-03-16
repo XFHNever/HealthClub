@@ -12,6 +12,7 @@ import edu.nju.healthclub.dao.PaymentDao;
 import edu.nju.healthclub.model.Member;
 import edu.nju.healthclub.model.Payment;
 import edu.nju.healthclub.service.PaymentService;
+import edu.nju.healthclub.service.enuminfo.MEMBER_STATE;
 import edu.nju.healthclub.service.enuminfo.PAY_RESULT;
 import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
 
@@ -49,6 +50,9 @@ public class PaymentServiceImpl implements PaymentService{
 		
 		float newBalance = member.getBalance() + (float)payment.getQuantity();
 		
+		if(!member.getState().equals(MEMBER_STATE.USING.toString())) {
+			member.setState(MEMBER_STATE.USING.toString());
+		}
 		member.setBalance(newBalance);
 		memberDao.updateByMemberid(member);
 		

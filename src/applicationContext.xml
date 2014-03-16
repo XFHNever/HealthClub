@@ -80,6 +80,12 @@
 		<property name="WaiterService">
 			<ref bean="WaiterService"/>
 		</property>
+		<property name="ManagerService">
+			<ref bean="ManagerService"/>
+		</property>
+		<property name="ParticipationService">
+			<ref bean="ParticipationService"/>
+		</property>
 	</bean>	
 	<bean id="RegisterAction" class="edu.nju.healthclub.action.RegisterAction">
 		<property name="MemberService">
@@ -112,6 +118,9 @@
 	<bean id="GetActivityAction" class="edu.nju.healthclub.action.GetActivityAction">
 		<property name="ActivityService">
 			<ref bean="ActivityService"/>
+		</property>
+		<property name="ParticipationService">
+			<ref bean="ParticipationService"/>
 		</property>
 	</bean>
 	
@@ -148,6 +157,77 @@
 		</property>
 	</bean>
 	<bean id="CompleteAddAction" class="edu.nju.healthclub.action.CompleteAddAction">
+		<property name="ActivityService">
+			<ref bean="ActivityService"/>
+		</property>
+	</bean>
+	
+	<bean id="BackManagerHomeAction" class="edu.nju.healthclub.action.BackManagerHomeAction">
+	</bean>
+	
+	<bean id="ClubAnalyticsAction" class="edu.nju.healthclub.action.ClubAnalyticsAction">
+		<property name="ParticipationService">
+			<ref bean="ParticipationService"/>
+		</property>
+	</bean>
+	
+	<bean id="MemberAnalyticsAction" class="edu.nju.healthclub.action.MemberAnalyticsAction">
+		<property name="MemberService">
+			<ref bean="MemberService"/>
+		</property>
+	</bean>
+	
+	<bean id="mainjob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>edu.nju.healthclub.timer.DeductionJob</value>
+		</property>
+	
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="MemberService">
+					<value>MemberService</value>
+				</entry>
+			</map>
+		</property>
+	</bean> 
+	<bean id="mainTrigger"
+        class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <!-- 上面创建的任务调度对象 -->
+            <ref bean="mainjob" />
+        </property>
+        <property name="cronExpression">
+     		 <value>0 0 6 * * ?</value>
+    	</property>
+    </bean>
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	    <property name="triggers">
+	      <list>
+	        <ref bean="mainTrigger"/>
+	      </list>
+	    </property>
+	</bean>
+	
+	<bean id="CheckMemberAction" class="edu.nju.healthclub.action.CheckMemberAction">
+		<property name="MemberService">
+			<ref bean="MemberService"/>
+		</property>
+	</bean>
+	
+	<bean id="MemberInfoAction" class="edu.nju.healthclub.action.MemberInfoAction">
+		<property name="MemberService">
+			<ref bean="MemberService"/>
+		</property>
+		<property name="ParticipationService">
+			<ref bean="ParticipationService"/>
+		</property>
+		<property name="PaymentService">
+			<ref bean="PaymentService"/>
+		</property>
+	</bean>
+	
+	<bean id="BackWaiterHomeAction" class="edu.nju.healthclub.action.BackWaiterHomeAction">
 		<property name="ActivityService">
 			<ref bean="ActivityService"/>
 		</property>

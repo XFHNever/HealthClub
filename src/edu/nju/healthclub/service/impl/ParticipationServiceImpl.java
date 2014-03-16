@@ -53,4 +53,9 @@ public class ParticipationServiceImpl implements ParticipationService {
 		req.setAttribute("message", message);
 	}
 
+	@Override
+	public List getDaily() {
+		return participationDao.findDaily();
+	}
+
 }

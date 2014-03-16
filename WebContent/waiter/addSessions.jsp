@@ -31,7 +31,7 @@
 			      	<s:textfield name="aid" label="activityid" value="%{activityid}" readonly="true" />
 			      	<sj:datepicker name="time"  parentTheme="bootstrap" label="Date" tooltip="Tooltip for Datepicker"/>
 			        <div class="form-actions">
-	                    <sj:submit cssClass="btn btn-primary"  id="add" value="Add Session" formIds="validationForm" validate="true" validateFunction="bootstrapValidation"/>
+	                    <sj:submit cssClass="btn btn-primary"  id="add" value="Add Session"/>
 	                </div>
 			    </s:form>
 			    

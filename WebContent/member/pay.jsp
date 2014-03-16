@@ -62,7 +62,7 @@
 	            	<s:textfield name="payment.quantity" label="充值金额" tooltip="Enter your quantity here" requiredLabel="true"></s:textfield>
 	            	
 	            	<div class="form-actions">
-	                    <sj:submit cssClass="btn btn-primary" formIds="validationForm" validate="true" validateFunction="bootstrapValidation"/>
+	                    <sj:submit cssClass="btn btn-primary"/>
 	                </div>
 	            </s:form>
 	            

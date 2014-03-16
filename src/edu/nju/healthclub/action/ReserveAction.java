@@ -34,8 +34,8 @@ public class ReserveAction extends BaseAction{
 		
 		participation.setMemberid(memberid);
 		participation.setSessionid(sessionid);
+		participation.setDate(sessionService.getSessionById(sessionid).getTime());
 		participation.setParticipationidByAttr();
-		
 		participationService.addNewParticipation(participation);
 		
 		String activityid = sessionService.getSessionById(sessionid).getActivityid();

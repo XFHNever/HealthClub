@@ -33,7 +33,7 @@
 			        <s:password name="password" label="密          码" tooltip="Enter your password here" requiredLabel="true" />
 			        
 			        <div class="form-actions">
-	                    <sj:submit cssClass="btn btn-primary" formIds="validationForm" validate="true" validateFunction="bootstrapValidation"/>
+	                    <sj:submit cssClass="btn btn-primary" />
 	                </div>
 			    </s:form>
 		    </div>

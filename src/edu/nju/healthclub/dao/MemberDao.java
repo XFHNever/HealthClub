@@ -5,6 +5,9 @@ import java.util.List;
 import edu.nju.healthclub.model.Member;
 
 public interface MemberDao {
+	
+	
+	public List getSex();
 	/**
 	 * 向数据库插入一条Member记录
 	 * @param member Member对象。

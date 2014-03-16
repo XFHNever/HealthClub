@@ -16,14 +16,23 @@ public class ActivityInfoAction extends BaseAction{
 	
 	@Override
 	public String execute() throws Exception {
+		
 		String activityid = request().getParameter("activityid");
+		String status = request().getParameter("status");
 		if(activityid == null) {
 			addActionError(activityid);
 			return "fail";
 		}
 		activity = activityService.getActivityById(activityid);
 		sessions = sessionService.getSessionsByActivity(activity.getId() + "");
-		return "success";
+		
+		System.out.println("status:" + status);
+		if(status != null) {
+			return "waiter";
+		} else {
+			return "success";
+		}
+		
 	}
 	public SessionService getSessionService() {
 		return sessionService;

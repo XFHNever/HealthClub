@@ -1,6 +1,7 @@
 package edu.nju.healthclub.service.impl;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +34,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public Member validateMember(String memberid) {
+		System.out.println("validateMember is called!!");
 		Member member = memberDao.find("memberid", memberid);
 		return member;
 	}
@@ -101,6 +103,16 @@ public class MemberServiceImpl implements MemberService{
 	public void cancelQualification(Member member) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List getSex() {
+		return memberDao.getSex();
+	}
+
+	@Override
+	public List getAll() {
+		return memberDao.findAll();
 	}
 
 }

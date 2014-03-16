@@ -45,7 +45,6 @@ public class MemberDaoImpl implements MemberDao{
         	Query query = session.createQuery(sql);
         	@SuppressWarnings("rawtypes")
 			List list = query.list();
-        	
         	if((list.size()) == 0) {
         		return null;
         	} else {
@@ -106,6 +105,25 @@ public class MemberDaoImpl implements MemberDao{
         	Query query = session.createQuery(sql);
 
         	return query.list();
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+		return null;
+	}
+
+	@Override
+	public List getSex() {
+		try {
+        	Configuration configuration = new Configuration().configure();
+        	@SuppressWarnings("deprecation")
+			SessionFactory sessionFactory = configuration.buildSessionFactory();
+        	Session session = sessionFactory.openSession();
+        	
+        	String sql = "select new edu.nju.healthclub.model.MemberSex(sex,count(*)) from edu.nju.healthclub.model.Member ms group by sex";
+        	
+        	Query query = session.createQuery(sql);
+			List list = query.list();
+			return list;
         } catch (Exception e) {
         	e.printStackTrace();
         }

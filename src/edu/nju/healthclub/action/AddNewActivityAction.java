@@ -18,7 +18,7 @@ public class AddNewActivityAction extends BaseAction{
 			addActionError(validate_result.toString());
 			return "fail";
 		}
-		
+		System.out.println("activity:" + activity.getName());
 		activityService.addNewActivity(activity);
 		List list = activityService.getAllActivities();
 		int id = ((Activity)list.get(list.size() - 1)).getId();
