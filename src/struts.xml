@@ -8,7 +8,7 @@
           <action name="login" class="LoginAction">
               <result name="member">/member/memhome.jsp</result>
               <result name="waiter">/waiter/waiterhome.jsp</result>
-              <result name="manager">/member/Success.jsp</result>
+              <result name="manager">/manager/managerhome.jsp</result>
               <result name="fail">/member/Login.jsp</result>
           </action>
           <action name="register" class="RegisterAction">
@@ -20,10 +20,7 @@
           	  <result name="success">/member/pay.jsp</result>
           	  <result name="fail">/member/pay.jsp</result>
           </action>
-          <action name="addnewactivity" class="AddNewActivityAction">
-          	  <result name="success">/waiter/waiterhome.jsp</result>
-          	  <result name="fail">/waiter/waiterhome.jsp</result>
-          </action>
+
           
           <action name="getpayment" class="GetPaymentAction">
           	  <result name="success">/member/pay.jsp</result>
@@ -38,6 +35,38 @@
           <action name="getactivity" class="GetActivityAction">
           	  <result name="success">/member/memhome.jsp</result>
           	  <result name="fail">/member/Login.jsp</result>
+          </action>
+          
+           <action name="modifyinfo" class="ModifyInfoAction">
+          	  <result name="success">/member/personal.jsp</result>
+          	  <result name="fail">/member/personal.jsp</result>
+          	  <result name="notlogin">/member/Login.jsp</result>
+          </action>
+          
+          <action name="activityinfo" class="ActivityInfoAction">
+          	  <result name="success">/member/sessions.jsp</result>
+          	  <result name="input">/member/Login.jsp</result>
+          	  <result name="fail">/member/Login.jsp</result>
+          </action>
+          
+          <action name="reserve" class="ReserveAction">
+          	  <result name="success">/member/sessions.jsp</result>
+          	  <result name="notlogin">/member/Login.jsp</result>
+          </action>
+          
+          <!-- waiter -->
+          <action name="addnewactivity" class="AddNewActivityAction">
+          	  <result name="success">/waiter/addSessions.jsp</result>
+          	  <result name="fail">/waiter/waiterhome.jsp</result>
+          </action>
+          <action name="addnewsession" class="AddNewSessionAction">
+          	  <result name="success">/waiter/addSessions.jsp</result>
+          	  <result name="fail">/waiter/addSessions.jsp</result>
+          	  <result name="input">/waiter/waiterhome.jsp</result>
+          </action>
+          
+          <action name="completeadd" class="CompleteAddAction">
+          	  <result name="success">/waiter/waiterhome.jsp</result>
           </action>
       </package>
   </struts>

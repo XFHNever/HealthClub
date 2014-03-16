@@ -15,7 +15,7 @@ import edu.nju.healthclub.model.Session;
 import edu.nju.healthclub.service.SessionService;
 import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
 
-public class SessionServiceImpl implements SessionService {
+public  class SessionServiceImpl implements SessionService {
 	private SessionDao sessionDao;
 	private ParticipationDao participationDao;
 	@Override
@@ -79,6 +79,22 @@ public class SessionServiceImpl implements SessionService {
 	public void sentMessage(String message, HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("message", message);
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public List getSessionsByActivity(String activityid) {
+		List list = sessionDao.findByKey("activityid", activityid);
+		return list;
+	}
+
+	@Override
+	public Session getSessionById(String sessionid) {
+		List list = sessionDao.findByKey("sessionid", sessionid);
+		if(list == null) {
+			return null;
+		}
+		return (Session) list.get(0);
 	}
 
 }

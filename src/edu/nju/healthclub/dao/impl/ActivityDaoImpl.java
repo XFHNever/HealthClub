@@ -17,13 +17,21 @@ public class ActivityDaoImpl implements ActivityDao {
 	@Override
 	public Activity find(String column, String value) {
 		try {
+			
         	Configuration configuration = new Configuration().configure();
         	@SuppressWarnings("deprecation")
 			SessionFactory sessionFactory = configuration.buildSessionFactory();
         	Session session = sessionFactory.openSession();
         	
-        	String sql = "from edu.nju.healthclub.model.Activity as ms where ms."
-        			+ column + "='" + value + "'";
+        	String sql = null;
+        	if(column.equals("id")) {
+        		sql = "from edu.nju.healthclub.model.Activity as ms where ms."
+            			+ column + "='" + Integer.parseInt(value) + "'";
+        	} else {
+        		sql = "from edu.nju.healthclub.model.Activity as ms where ms."
+            			+ column + "='" + value + "'";
+        	}
+        	
         	
         	Query query = session.createQuery(sql);
         	@SuppressWarnings("rawtypes")

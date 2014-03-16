@@ -20,7 +20,7 @@ public class SessionDaoImpl implements SessionDao {
 			SessionFactory sessionFactory = configuration.buildSessionFactory();
         	org.hibernate.Session session = sessionFactory.openSession();
         	
-        	String sql = "from edu.nju.healthclub.model.Session ss ms where ss."
+        	String sql = "from edu.nju.healthclub.model.Session ss where ss."
         			+ column + "='" + value + "'";
         	
         	Query query = session.createQuery(sql);
@@ -85,7 +85,7 @@ public class SessionDaoImpl implements SessionDao {
 			SessionFactory sessionFactory = configuration.buildSessionFactory();
         	org.hibernate.Session session = sessionFactory.openSession();
         	
-        	String sql = "from edu.nju.healthclub.model.Session ss ms where ss."
+        	String sql = "from edu.nju.healthclub.model.Session ss where ss."
         			+ column + "='" + value + "'";
         	
         	Query query = session.createQuery(sql);

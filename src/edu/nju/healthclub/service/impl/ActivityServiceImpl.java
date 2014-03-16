@@ -62,4 +62,9 @@ public class ActivityServiceImpl implements ActivityService {
 		return VALIDATE_RESULT.验证成功;
 	}
 
+	@Override
+	public Activity getActivityById(String activityid) {
+		return activityDao.find("id", activityid);
+	}
+
 }

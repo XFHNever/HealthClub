@@ -1,14 +1,16 @@
+<%@page import="edu.nju.healthclub.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags"%>
+<%@taglib prefix="sj" uri="/struts-jquery-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <sb:head includeScripts="true" includeStyles="false" includeStylesResponsive="true"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap-superhero.css">
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap-min.css">
 <title>Head</title>
 </head>
 <body>
@@ -43,17 +45,34 @@
 	        <div class="span3">
 	            <div style="margin-top: 100px;">
 	            </div>
-	            <ul class="nav nav-pills nav-stacked" id="myTab">
-                          <li class="active"><a href="#my-info"  data-toggle="pill">personal information</a></li>
-                          <li><a href="#my-activity" data-toggle="pill">activity record</a></li>
-                          <li><a href="#my-pay" data-toggle="pill">payment record</a></li>
-                </ul>
+	            
 	        </div>
 	        <div class="span9">
 		        <div class="tab-pane active" id="my-info">
 		        	<h1 style="margin-top: 100px;">Personal Info</h1>
 					
-					
+					<s:actionerror theme="bootstrap"/>
+		            <s:actionmessage theme="bootstrap"/>
+		            <s:fielderror theme="bootstrap"/>
+		            
+				    <s:form id="validationForm" action="/register" enctype="multipart/form-data" theme="bootstrap" cssClass="form-horizontal" label="Modify personal Information" >
+				        <s:textfield name="member.name" label="姓名" tooltip="Enter your Name here" requiredLabel="true" value="%{member.name}"/>
+				        <s:textfield name="member.password" label="密          码" tooltip="Enter your password here" requiredLabel="true" value="%{member.password}"/>
+				        <s:select list="{'Male','Female'}" name="member.sex" label="性别" tooltip="select your sex" requiredLabel="true" value="%{member.sex}"/>
+				        <s:textfield name="member.address" label="地址" tooltip="Enter your address here" requiredLabel="true" value="%{member.address}"/>
+				        <s:textfield name="member.age" label="年龄" tooltip="Enter your age here" requiredLabel="true" value="%{member.age}"/>
+				        <s:if test="member.type == '家庭'">
+				        	<s:textfield name="member.childnum" label="子女数量" tooltip="Enter the number of your son or daughter here" requiredLabel="true" value="%{member.childnum}"/>
+				        </s:if>
+				        <h5>*以下信息不能修改*</h5>
+				        <s:label label="卡号" value="%{member.memberid}"/>
+				        <s:label label="余额" value="%{member.balance}"/>
+				        <s:label label="类型" value="%{member.type}"/>
+
+				        <div class="form-actions">
+		                    <sj:submit cssClass="btn btn-primary" formIds="validationForm" validate="true" validateFunction="bootstrapValidation"/>
+		                </div>
+				    </s:form>
 		        </div>
 		        <div class="tab-pane active" id="my-activity">
 		        	<h1 style="margin-top: 100px;">Personal Center</h1>

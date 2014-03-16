@@ -20,4 +20,5 @@ public class GetPersonalInfoAction extends BaseAction{
 	public void setMember(Member member) {
 		this.member = member;
 	}
+	
 }

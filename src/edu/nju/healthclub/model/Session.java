@@ -13,7 +13,7 @@ public class Session {
     private int id;
     private String sessionid;
     private String activityid;
-    private Date date;
+    private Date time;
     
     @Id
 	public int getId() {
@@ -34,11 +34,14 @@ public class Session {
 	public void setActivityid(String activityid) {
 		this.activityid = activityid;
 	}
-	public Date getDate() {
-		return date;
+
+	public Date getTime() {
+		return time;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setTime(Date time) {
+		this.time = time;
 	}
-    
+	public void setSessionidByDate() {
+		this.sessionid = activityid + time;
+	}
 }

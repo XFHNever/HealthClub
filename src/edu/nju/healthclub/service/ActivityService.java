@@ -36,6 +36,13 @@ public interface ActivityService {
 	public List getCurrentActivities();
 	
 	/**
+	 * 通过id查询Activity，返回Activity对象.
+	 * @param activityid id
+	 * @return Activity对象。
+	 */
+	public Activity getActivityById(String activityid);
+	
+	/**
 	 * 验证Activity对象信息是否填写完整,返回验证的枚举结果。
 	 * @param activity Activity对象
 	 * @return 验证结果的枚举结果

@@ -114,4 +114,42 @@
 			<ref bean="ActivityService"/>
 		</property>
 	</bean>
+	
+	<bean id="ModifyInfoAction" class="edu.nju.healthclub.action.ModifyInfoAction">
+		<property name="MemberService">
+			<ref bean="MemberService"/>
+		</property>
+	</bean>
+	
+	<bean id="ActivityInfoAction" class="edu.nju.healthclub.action.ActivityInfoAction">
+		<property name="SessionService">
+			<ref bean="SessionService"/>
+		</property>
+		<property name="ActivityService">
+			<ref bean="ActivityService"/>
+		</property>
+	</bean>
+	
+	<bean id="ReserveAction" class="edu.nju.healthclub.action.ReserveAction">
+		<property name="ParticipationService">
+			<ref bean="ParticipationService"/>
+		</property>
+		<property name="ActivityService">
+			<ref bean="ActivityService"/>
+		</property>
+		<property name="SessionService">
+			<ref bean="SessionService"/>
+		</property>
+	</bean>
+	
+	<bean id="AddNewSessionAction" class="edu.nju.healthclub.action.AddNewSessionAction">
+		<property name="SessionService">
+			<ref bean="SessionService"/>
+		</property>
+	</bean>
+	<bean id="CompleteAddAction" class="edu.nju.healthclub.action.CompleteAddAction">
+		<property name="ActivityService">
+			<ref bean="ActivityService"/>
+		</property>
+	</bean>
 </beans>

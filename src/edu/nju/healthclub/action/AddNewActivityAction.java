@@ -1,5 +1,7 @@
 package edu.nju.healthclub.action;
 
+import java.util.List;
+
 import edu.nju.healthclub.model.Activity;
 import edu.nju.healthclub.service.ActivityService;
 import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
@@ -8,6 +10,7 @@ import edu.nju.healthclub.service.enuminfo.VALIDATE_RESULT;
 public class AddNewActivityAction extends BaseAction{
 	private ActivityService activityService;
 	private Activity activity;
+	private String activityid;
 	@Override
 	public String execute() throws Exception {
 		VALIDATE_RESULT validate_result = activityService.validateUpdateActivity(activity);
@@ -17,6 +20,10 @@ public class AddNewActivityAction extends BaseAction{
 		}
 		
 		activityService.addNewActivity(activity);
+		List list = activityService.getAllActivities();
+		int id = ((Activity)list.get(list.size() - 1)).getId();
+		activityid = id + "";
+		//	request().setAttribute("activityid", id);
 		return "success";
 	}
 	
@@ -31,6 +38,14 @@ public class AddNewActivityAction extends BaseAction{
 	}
 	public void setActivity(Activity activity) {
 		this.activity = activity;
+	}
+
+	public String getActivityid() {
+		return activityid;
+	}
+
+	public void setActivityid(String activityid) {
+		this.activityid = activityid;
 	}
 	
 }

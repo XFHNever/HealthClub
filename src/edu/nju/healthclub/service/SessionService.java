@@ -45,6 +45,19 @@ public interface SessionService {
 	public List getAllSessions();
 	
 	/**
+	 * 获取一个活动的所有场次,返回一个session对象的列表。
+	 * @param activityid 活动的id
+	 * @return Session对象的列表
+	 */
+	public List getSessionsByActivity(String activityid);
+	
+	/**
+	 * 通过sessionid获取Session对象，返回Session对象
+	 * @param sessionid 
+	 * @return Session对象
+	 */
+	public Session getSessionById(String sessionid);
+	/**
 	 * 获取制定用户参加的活动场次
 	 * @param member Member对象
 	 * @return Session对象的列表
