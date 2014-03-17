@@ -79,7 +79,8 @@ $(function () {
 	                    <li><s:a href="%{club_url}">Club Analytics</s:a></li>
 	                    <s:url var="member_url" action="/memberanalytics"/>
 	                    <li  class="active"><s:a href="#">Member Analytics</s:a></li>
-	                    
+	                    <s:url var="logout_url" action="/logout"/>
+	                    <li><s:a href="%{logout_url}">Logout</s:a></li>
 	                </ul>
 	            </div>
 	            <!--/.nav-collapse -->

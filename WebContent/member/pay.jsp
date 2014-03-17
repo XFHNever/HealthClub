@@ -37,7 +37,8 @@
 	                    <li class="active"><s:a href="#">Pay</s:a></li>
 	                    <s:url var="personal_url" action="/getpersonalinfo"/>
 	                    <li><s:a href="%{personal_url}">Personal</s:a></li>
-	                    
+	                    <s:url var="logout_url" action="/logout"/>
+	                    <li><s:a href="%{logout_url}">Logout</s:a></li>
 	                </ul>
 	            </div>
 	            <!--/.nav-collapse -->

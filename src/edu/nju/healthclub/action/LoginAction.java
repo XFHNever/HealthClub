@@ -24,6 +24,7 @@ public class LoginAction extends BaseAction{
 	@SuppressWarnings("rawtypes")
 	private List activities;
 	private List m_activities;
+	private String state;
 	
 	public String execute() throws Exception {
 		System.out.println("loginAction is called!!");
@@ -43,6 +44,7 @@ public class LoginAction extends BaseAction{
 				activities = activityService.getAllActivities();
 				m_activities = participationService.getParticipation(member);
 				this.request().getSession().setAttribute("user", member);
+				state = member.getState();
 				return "member";
 			} else {
 				addActionError(VALIDATE_RESULT.√‹¬Î¥ÌŒÛ.toString());
@@ -92,6 +94,7 @@ public class LoginAction extends BaseAction{
 			if(member.getPassword().equals(password)) {
 				activities = activityService.getAllActivities();
 				m_activities = participationService.getParticipation(member);
+				state = member.getState();
 				this.request().getSession().setAttribute("user", member);
 				return "member";
 			} else {
@@ -173,6 +176,14 @@ public class LoginAction extends BaseAction{
 
 	public void setParticipationService(ParticipationService participationService) {
 		this.participationService = participationService;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 }

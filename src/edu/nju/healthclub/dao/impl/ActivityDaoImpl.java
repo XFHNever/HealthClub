@@ -86,4 +86,24 @@ public class ActivityDaoImpl implements ActivityDao {
 	       }
 	}
 
+	@Override
+	public long getFieldUsage(String field) {
+		try {
+        	Configuration configuration = new Configuration().configure();
+        	@SuppressWarnings("deprecation")
+			SessionFactory sessionFactory = configuration.buildSessionFactory();
+        	Session session = sessionFactory.openSession();
+        	
+        	String sql = "select count(*) from edu.nju.healthclub.model.Activity as ms where ms.field='" + field + "'";
+        	
+        	Query query = session.createQuery(sql);
+			List list = query.list();
+			System.out.println(field +"-----" + (long) list.get(0));
+			return (long) list.get(0);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+		return 0;
+	}
+
 }

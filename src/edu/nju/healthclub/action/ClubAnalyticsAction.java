@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.nju.healthclub.model.Daily_Member;
+import edu.nju.healthclub.service.ActivityService;
 import edu.nju.healthclub.service.ParticipationService;
 
 public class ClubAnalyticsAction extends BaseAction{
+	public static final String FIELD[] = {"14-216","Library","Basketball court","Swimming Pool","football court","ground track field","supermarket"};
 	private ParticipationService participationService;
+	private ActivityService activityService;
 	private List day_members;
 	private String datelist;
 	private String numberlist;
+	
+	private String fieldlist;
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public String execute() throws Exception {
@@ -18,6 +24,7 @@ public class ClubAnalyticsAction extends BaseAction{
 	
 		datelist = "";
 		numberlist = "";
+		fieldlist = "";
 		
 		int length = day_members.size();
 		if(length < 1) {
@@ -29,8 +36,17 @@ public class ClubAnalyticsAction extends BaseAction{
 		}
 		numberlist = numberlist + ((Daily_Member)day_members.get(length-1)).getCount();
 		datelist = datelist + "'" + ((Daily_Member)day_members.get(length-1)).getDate() + "'";
-		day_members.remove(length-1);
 
+		int fieldLength = FIELD.length;
+		long tem[] = new long[fieldLength];
+		for(int j = 0; j < fieldLength-1; j++) {
+			tem[j] = activityService.getFieldUsage(FIELD[j]);
+			fieldlist = fieldlist + tem[j] + ",";
+		}
+		
+		fieldlist += activityService.getFieldUsage(FIELD[length-1]);
+		
+		
 		return "success";
 	}
 	
@@ -58,6 +74,26 @@ public class ClubAnalyticsAction extends BaseAction{
 	}
 	public void setNumberlist(String numberlist) {
 		this.numberlist = numberlist;
+	}
+
+
+	public ActivityService getActivityService() {
+		return activityService;
+	}
+
+
+	public void setActivityService(ActivityService activityService) {
+		this.activityService = activityService;
+	}
+
+
+	public String getFieldlist() {
+		return fieldlist;
+	}
+
+
+	public void setFieldlist(String fieldlist) {
+		this.fieldlist = fieldlist;
 	}
 	
 }

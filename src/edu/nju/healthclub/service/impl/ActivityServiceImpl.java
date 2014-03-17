@@ -67,4 +67,9 @@ public class ActivityServiceImpl implements ActivityService {
 		return activityDao.find("id", activityid);
 	}
 
+	@Override
+	public long getFieldUsage(String field) {
+		return activityDao.getFieldUsage(field);
+	}
+
 }

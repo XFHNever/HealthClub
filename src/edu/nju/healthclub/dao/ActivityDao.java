@@ -5,6 +5,8 @@ import java.util.List;
 import edu.nju.healthclub.model.Activity;
 
 public interface ActivityDao {
+	
+	public long getFieldUsage(String field);
 	/**
 	 * 根据参数列名和这个列上的值查找Activity对象,如果找到则返回这个对象,否则返回null
 	 * @param column 列名

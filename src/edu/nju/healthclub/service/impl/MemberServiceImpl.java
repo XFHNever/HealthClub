@@ -34,7 +34,6 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public Member validateMember(String memberid) {
-		System.out.println("validateMember is called!!");
 		Member member = memberDao.find("memberid", memberid);
 		return member;
 	}
@@ -94,15 +93,14 @@ public class MemberServiceImpl implements MemberService{
         	return UPDATE_RESULT.信息填写不完整;
         }
         
-		return null;
+        memberDao.updateByMemberid(member);
+		return UPDATE_RESULT.更新成功;
 	}
-
 
 
 	@Override
 	public void cancelQualification(Member member) {
-		// TODO Auto-generated method stub
-		
+		memberDao.delete(member);
 	}
 
 	@Override

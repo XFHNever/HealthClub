@@ -11,6 +11,7 @@
               <result name="waiter">/waiter/waiterhome.jsp</result>
               <result name="manager">/manager/managerhome.jsp</result>
               <result name="fail">/member/Login.jsp</result>
+              <result name="input">/member/Login.jsp</result>
           </action>
           <action name="register" class="RegisterAction">
           	  <result name="success">/member/register_success.jsp</result>
@@ -93,6 +94,14 @@
           
           <action name="backwaiterhome" class="BackWaiterHomeAction">
           	  <result name="success">/waiter/waiterhome.jsp</result>
+          </action>
+          
+          <action name="cancel" class="CancelAction">
+          	  <result name="success">/member/Login.jsp</result>
+          	   <result name="fail">/member/Login.jsp</result>
+          </action>
+          <action name="logout" class="LogoutAction">
+          	  <result name="success">/member/Login.jsp</result>
           </action>
       </package>
   </struts>

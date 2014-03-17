@@ -45,6 +45,7 @@ public class MemberDaoImpl implements MemberDao{
         	Query query = session.createQuery(sql);
         	@SuppressWarnings("rawtypes")
 			List list = query.list();
+        	System.out.println("findsize" + ((Member)list.get(0)).getMemberid());
         	if((list.size()) == 0) {
         		return null;
         	} else {
@@ -86,6 +87,7 @@ public class MemberDaoImpl implements MemberDao{
 			transaction.commit();
 			session.close();
 			sessionFactory.close();
+			System.out.println("member" + member.getMemberid());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -127,6 +129,12 @@ public class MemberDaoImpl implements MemberDao{
         } catch (Exception e) {
         	e.printStackTrace();
         }
+		return null;
+	}
+
+	@Override
+	public List getAge() {
+		
 		return null;
 	}
 

@@ -32,7 +32,8 @@
 	                    <li><s:a href="%{pay_url}">Pay</s:a></li>
 	                    <s:url var="personal_url" action="/getpersonalinfo"/>
 	                    <li class="active"><s:a href="#">Personal</s:a></li>
-	                    
+	                    <s:url var="logout_url" action="/logout"/>
+	                    <li><s:a href="%{logout_url}">Logout</s:a></li>
 	                </ul>
 	            </div>
 	            <!--/.nav-collapse -->
@@ -54,7 +55,7 @@
 		            <s:actionmessage theme="bootstrap"/>
 		            <s:fielderror theme="bootstrap"/>
 		            
-				    <s:form id="validationForm" action="/register" enctype="multipart/form-data" theme="bootstrap" cssClass="form-horizontal" label="Modify personal Information" >
+				    <s:form id="validationForm" action="/modifyinfo" enctype="multipart/form-data" theme="bootstrap" cssClass="form-horizontal" label="Modify personal Information" >
 				        <s:textfield name="member.name" label="姓名" tooltip="Enter your Name here" requiredLabel="true" value="%{member.name}"/>
 				        <s:textfield name="member.password" label="密          码" tooltip="Enter your password here" requiredLabel="true" value="%{member.password}"/>
 				        <s:select list="{'Male','Female'}" name="member.sex" label="性别" tooltip="select your sex" requiredLabel="true" value="%{member.sex}"/>
@@ -75,7 +76,11 @@
 				    </s:form>
 		        </div>
 		  
-				
+		  		<p style="margin-top: 100px;">教练，我不想和你们一起愉快的玩耍啦。。。</p>
+		  		
+				<a href="<s:url action="cancel">
+					<s:param name="memberid" value="%{member.memberid}"></s:param>
+				</s:url>">Cancel</a>
 	        </div>
 	    </div>
 	

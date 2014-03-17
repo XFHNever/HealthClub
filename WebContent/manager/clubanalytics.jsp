@@ -55,6 +55,49 @@ $(function () {
                 	//[<s:iterator value="day_members" var="dm"><s:property value="#dm.count"/>,</s:iterator>,<s:property value="day_end.count"/>]
             }]
         });
+        
+        
+        //柱状图
+        $('#field').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Field Usage'
+            },
+            subtitle: {
+                text: 'Source: by never'
+            },
+            xAxis: {
+                categories: ['14-216','Library','Basketball court','Swimming Pool','football court','ground track field','supermarket'
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '次数 (次)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Field',
+                data: [<s:property value="fieldlist"/>]
+    
+            }]
+        });
     });
 </script>
 <title>ClubAnalytics</title>
@@ -78,7 +121,8 @@ $(function () {
 	                    <li  class="active"><s:a href="%{club_url}">Club Analytics</s:a></li>
 	                    <s:url var="member_url" action="/memberanalytics"/>
 	                    <li><s:a href="%{member_url}">Member Analytics</s:a></li>
-	                    
+	                    <s:url var="logout_url" action="/logout"/>
+	                    <li><s:a href="%{logout_url}">Logout</s:a></li>
 	                </ul>
 	            </div>
 	            <!--/.nav-collapse -->
@@ -102,7 +146,9 @@ $(function () {
 				<div id="daily" style="min-width: 200px; height: 300px; margin-bottom50px; margin: 0 auto">
 				</div>
 
-
+				<h1 style="margin-top: 100px;">Field Usage</h1>
+				<div id="field" style="min-width: 200px; height: 300px; margin-bottom50px; margin: 0 auto">
+				</div>
 	        </div>
 	    </div>
 	

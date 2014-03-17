@@ -17,6 +17,8 @@ public interface ActivityService {
 	 */
 	public ActivityDao getActivityDao();
 	public void setActivityDao(ActivityDao activityDao);
+	
+	public long getFieldUsage(String field);
 	/**
 	 * 制定一个新活动。
 	 * @param activity Activity对象

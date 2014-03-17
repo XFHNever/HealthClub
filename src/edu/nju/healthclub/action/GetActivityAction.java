@@ -13,13 +13,14 @@ public class GetActivityAction extends BaseAction{
 	@SuppressWarnings("rawtypes")
 	private List activities;
 	private List m_activities;
+	private String state;
 	@Override
 	public String execute() throws Exception {
 		activities = activityService.getAllActivities();
 		Member member = (Member) this.request().getSession().getAttribute("user");
 		if(member != null) {
 			m_activities = participationService.getParticipation(member);
-			System.out.println("list" + m_activities.size());
+			state = member.getState();
 			return "success";
 		} else {
 			return "fail";
@@ -48,6 +49,12 @@ public class GetActivityAction extends BaseAction{
 	}
 	public void setM_activities(List m_activities) {
 		this.m_activities = m_activities;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 }
