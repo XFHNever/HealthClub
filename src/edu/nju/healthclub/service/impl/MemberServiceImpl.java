@@ -113,5 +113,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.findAll();
 	}
 
+	@Override
+	public List getAge() {
+		return memberDao.getAge();
+	}
+
 }
 

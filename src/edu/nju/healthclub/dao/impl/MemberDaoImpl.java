@@ -45,7 +45,6 @@ public class MemberDaoImpl implements MemberDao{
         	Query query = session.createQuery(sql);
         	@SuppressWarnings("rawtypes")
 			List list = query.list();
-        	System.out.println("findsize" + ((Member)list.get(0)).getMemberid());
         	if((list.size()) == 0) {
         		return null;
         	} else {
@@ -116,12 +115,40 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public List getSex() {
 		try {
+	         Configuration configuration = new Configuration().configure();
+	         @SuppressWarnings("deprecation")
+	SessionFactory sessionFactory = configuration.buildSessionFactory();
+	         Session session = sessionFactory.openSession();
+	        
+	         String sql = "select new edu.nju.healthclub.model.MemberSex(sex,count(*)) from edu.nju.healthclub.model.Member ms group by sex";
+	        
+	         Query query = session.createQuery(sql);
+			List list = query.list();
+			return list;
+			        } catch (Exception e) {
+			         e.printStackTrace();
+			        }
+			return null;
+	}
+
+	@Override
+	public List getAge() {
+		try {
         	Configuration configuration = new Configuration().configure();
         	@SuppressWarnings("deprecation")
 			SessionFactory sessionFactory = configuration.buildSessionFactory();
         	Session session = sessionFactory.openSession();
         	
-        	String sql = "select new edu.nju.healthclub.model.MemberSex(sex,count(*)) from edu.nju.healthclub.model.Member ms group by sex";
+        	String sql = "select nnd from"
+        			+ "(select case"
+        			+ " when age>=0 and age<=10 then '1-10' "
+        			+ " when age>=11 and age<=20 then '11-20' "
+        			+ " when age>=21 and age<=30 then '21-30' "
+        			+ " when age>=31 and age<=40 then '31-40' "
+        			+ " when age>=41 and age<=50 then '41-50' "
+        			+ " when age>=51 and age<=60 then '51-60' "
+        			+ " when age>=61 then '>60' "
+        			+ " end as nnd from edu.nju.healthclub.model.Member) group by nnd";
         	
         	Query query = session.createQuery(sql);
 			List list = query.list();
@@ -129,12 +156,6 @@ public class MemberDaoImpl implements MemberDao{
         } catch (Exception e) {
         	e.printStackTrace();
         }
-		return null;
-	}
-
-	@Override
-	public List getAge() {
-		
 		return null;
 	}
 

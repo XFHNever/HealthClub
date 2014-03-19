@@ -21,6 +21,10 @@ public class MemberAnalyticsAction extends BaseAction{
 			male = 100- female;
 			System.out.println("male" + male);
 		}
+		
+	//	List ageList = memberService.getAge();
+		
+	//	System.out.println("agesize" + ageList.size());
 		return "success";
 	}
 	public MemberService getMemberService() {

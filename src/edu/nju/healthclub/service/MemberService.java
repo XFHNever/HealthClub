@@ -32,6 +32,7 @@ public interface MemberService {
 	
 	public List getSex();
 	
+	public List getAge();
 	/**
 	 * 通过id验证用户,如果验证查找失败，则返回null。
 	 * @param memberid 会员Id

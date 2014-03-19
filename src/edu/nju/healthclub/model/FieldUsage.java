@@ -16,7 +16,6 @@ public class FieldUsage {
 		this.count = count;
 	}
 	public FieldUsage(String field, long count) {
-		super();
 		this.field = field;
 		this.count = count;
 	}
